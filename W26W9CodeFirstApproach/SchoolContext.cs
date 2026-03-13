@@ -27,6 +27,22 @@ namespace W26W9CodeFirstApproach
 
         // data seeding - OPTIONAL
         // override the OnModelCreating method
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Standard>().HasData(
+                new Standard { StandardId = 1, StandardName = "Standard 1" },
+                new Standard { StandardId = 2, StandardName = "Standard 2" },
+                new Standard { StandardId = 3, StandardName = "Standard 3" },
+                new Standard { StandardId = 4, StandardName = "Standard 4" },
+                new Standard { StandardId = 5, StandardName = "Standard 5" }
+            );
 
+            modelBuilder.Entity<Student>().HasData(
+                new Student { StudentId = 1, StudentName = "John", StandardId = 1 },
+                new Student { StudentId = 2, StudentName = "Mark", StandardId = 1 },
+                new Student { StudentId = 3, StudentName = "Anne", StandardId = 2 },
+                new Student { StudentId = 4, StudentName = "Alice", StandardId = 4 }
+            );
+        }
     }
 }
